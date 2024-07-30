@@ -5,6 +5,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
+import java.util.Date;
+
 public class Main {
     public static void main(String[] args) {
         System.out.println("Project Running...");
@@ -20,26 +22,11 @@ public class Main {
         student.setCity("CTG");
 
         // GET CURRENT SESSION AND SAVE DATA
-        Session session = null;
-        Transaction tx = null;
+        Session session = sessionFactory.getCurrentSession();
+        Transaction tx = session.beginTransaction();
 
-        try {
-            session = sessionFactory.getCurrentSession();
-            tx = session.beginTransaction();
-            session.save(student);
-            tx.commit();
-        } catch (Exception e) {
-            if (tx != null) {
-                tx.rollback();
-            }
-            e.printStackTrace();
-        } finally {
-            if (session != null) {
-                session.close();
-            }
-        }
-
-        // Close the SessionFactory
+        session.save(student);
+        tx.commit();
         sessionFactory.close();
     }
 }
