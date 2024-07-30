@@ -21,12 +21,22 @@ public class Main {
         student.setName("Lablu");
         student.setCity("CTG");
 
+//        // CREATE NEW ADDRESS OBJ
+        Address address = new Address();
+        address.setStreet("790/1");
+        address.setCity("CTG");
+        address.setIsOpen(true);
+        address.setAddedDate(new Date());
+        address.setX(343.88);
+
         // GET CURRENT SESSION AND SAVE DATA
         Session session = sessionFactory.getCurrentSession();
         Transaction tx = session.beginTransaction();
 
         session.save(student);
+        session.save(address);
         tx.commit();
         sessionFactory.close();
+        System.out.println("Done....");
     }
 }
