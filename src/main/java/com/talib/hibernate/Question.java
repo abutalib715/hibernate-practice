@@ -2,6 +2,8 @@ package com.talib.hibernate;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class Question {
     @Id
@@ -10,16 +12,24 @@ public class Question {
 
     private String question;
 
-    @OneToOne
-    private Answer answer;
+    @OneToMany(mappedBy = "question")
+    private List<Answer> answers;
 
     public Question() {
     }
 
-    public Question(int id, String question, Answer answer) {
+    public Question(int id, String question, List<Answer> answers) {
         this.id = id;
         this.question = question;
-        this.answer = answer;
+        this.answers = answers;
+    }
+
+    public List<Answer> getAnswers() {
+        return answers;
+    }
+
+    public void setAnswers(List<Answer> answers) {
+        this.answers = answers;
     }
 
     public int getId() {
@@ -36,13 +46,5 @@ public class Question {
 
     public void setQuestion(String question) {
         this.question = question;
-    }
-
-    public Answer getAnswer() {
-        return answer;
-    }
-
-    public void setAnswer(Answer answer) {
-        this.answer = answer;
     }
 }

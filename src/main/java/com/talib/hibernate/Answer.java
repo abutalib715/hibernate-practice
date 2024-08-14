@@ -10,7 +10,7 @@ public class Answer {
 
     private String answer;
 
-    @OneToOne(mappedBy = "answer")
+    @ManyToOne
     private Question question;
 
     public Answer() {
