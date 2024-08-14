@@ -15,7 +15,9 @@
 
         <mapping class="com.talib.hibernate.Student"/>
         <mapping class="com.talib.hibernate.Address"/>
-        <mapping class="com.talib.hibernate.Question"/>
-        <mapping class="com.talib.hibernate.Answer"/>
+        <mapping class="com.talib.hibernate.relational.Question"/>
+        <mapping class="com.talib.hibernate.relational.Answer"/>
+        <mapping class="com.talib.hibernate.relational.manytomany.Employee"/>
+        <mapping class="com.talib.hibernate.relational.manytomany.Project"/>
     </session-factory>
 </hibernate-configuration>

@@ -27,7 +27,8 @@ public class Address {
     private Date addedDate;
 
     @Lob
-    @Column(name = "image", columnDefinition = "LONGBLOB")
+    @Column(name = "image")
+//    @Column(name = "image", columnDefinition = "LONGBLOB")
     private byte[] image;
 
 

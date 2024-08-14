@@ -1,4 +1,4 @@
-package com.talib.hibernate;
+package com.talib.hibernate.relational;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
