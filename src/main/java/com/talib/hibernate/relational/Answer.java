@@ -16,8 +16,7 @@ public class Answer {
     public Answer() {
     }
 
-    public Answer(int id, String answer, Question question) {
-        this.id = id;
+    public Answer(String answer, Question question) {
         this.answer = answer;
         this.question = question;
     }
