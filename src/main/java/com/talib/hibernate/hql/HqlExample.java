@@ -33,14 +33,22 @@ public class HqlExample {
 
         System.out.printf("____________________________");
 
-        // DELETE DATA
         Transaction trx = session.beginTransaction();
-        Query q2 = session.createQuery("delete from Student where city=:city");
-        q2.setParameter("city", "CTG");
-        int uc = q2.executeUpdate();
-        trx.commit();
-        System.out.println(uc + " items deleted");
 
+//        // DELETE DATA
+//        Query q2 = session.createQuery("delete from Student where city=:city");
+//        q2.setParameter("city", "CTG");
+//        int uc = q2.executeUpdate();
+//        System.out.println(uc + " items deleted");
+
+        // UPDATE DATA
+        Query q2 = session.createQuery("update Student set city = :city where name = :name");
+        q2.setParameter("city", "Khulna");
+        q2.setParameter("name", "Bablu");
+        int uc = q2.executeUpdate();
+        System.out.println(uc + " items updated");
+
+        trx.commit();
         session.close();
         sessionFactory.close();
     }
