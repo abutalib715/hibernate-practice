@@ -1,6 +1,6 @@
 package com.talib.hibernate.relational;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 @Entity
 public class Answer {

@@ -1,6 +1,6 @@
 package com.talib.hibernate.relational.manytomany;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 import java.util.List;
 
