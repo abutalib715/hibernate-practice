@@ -58,4 +58,13 @@ public class Student {
     public void setCertificate(Certificate certificate) {
         this.certificate = certificate;
     }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", city='" + city + '\'' +
+                '}';
+    }
 }
