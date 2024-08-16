@@ -31,9 +31,9 @@ public class Main {
         address.setAddedDate(new Date());
         address.setX(343.88);
 
-        FileInputStream inputStream = new FileInputStream("src/main/resources/logo.png");
-        byte[] imageData = inputStream.readAllBytes();
-        address.setImage(imageData);
+//        FileInputStream inputStream = new FileInputStream("src/main/resources/logo.png");
+//        byte[] imageData = inputStream.readAllBytes();
+//        address.setImage(imageData);
 
         // GET CURRENT SESSION AND SAVE DATA
         Session session = sessionFactory.getCurrentSession();
