@@ -7,6 +7,7 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class HqlExample {
@@ -41,12 +42,20 @@ public class HqlExample {
 //        int uc = q2.executeUpdate();
 //        System.out.println(uc + " items deleted");
 
+//        // UPDATE DATA
+//        Query q2 = session.createQuery("update Student set city = :city where name = :name");
+//        q2.setParameter("city", "Khulna");
+//        q2.setParameter("name", "Bablu");
+//        int uc = q2.executeUpdate();
+//        System.out.println(uc + " items updated");
+
         // UPDATE DATA
-        Query q2 = session.createQuery("update Student set city = :city where name = :name");
-        q2.setParameter("city", "Khulna");
-        q2.setParameter("name", "Bablu");
-        int uc = q2.executeUpdate();
-        System.out.println(uc + " items updated");
+        Query q3 = session.createQuery("select q.question, q.id, a.answer from Question q inner join q.answers as a");
+        List<Object[]> list = q3.getResultList();
+
+        for (Object[] obj : list) {
+            System.out.println(Arrays.toString(obj));
+        }
 
         trx.commit();
         session.close();
