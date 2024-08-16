@@ -3,6 +3,7 @@ package com.talib.hibernate.hql;
 import com.talib.hibernate.Student;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
@@ -15,6 +16,7 @@ public class HqlExample {
         SessionFactory sessionFactory = configuration.buildSessionFactory();
         Session session = sessionFactory.openSession();
 
+        // FETCHING DATA
         String query = "from Student where city = :city ";
         Query q = session.createQuery(query);
         q.setParameter("city", "CTG");
@@ -28,6 +30,16 @@ public class HqlExample {
         for (Student student : studentList) {
             System.out.println(student.getName());
         }
+
+        System.out.printf("____________________________");
+
+        // DELETE DATA
+        Transaction trx = session.beginTransaction();
+        Query q2 = session.createQuery("delete from Student where city=:city");
+        q2.setParameter("city", "CTG");
+        int uc = q2.executeUpdate();
+        trx.commit();
+        System.out.println(uc + " items deleted");
 
         session.close();
         sessionFactory.close();
