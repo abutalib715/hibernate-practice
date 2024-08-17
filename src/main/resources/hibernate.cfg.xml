@@ -24,5 +24,6 @@
         <mapping class="com.talib.hibernate.relational.Answer"/>
         <mapping class="com.talib.hibernate.relational.manytomany.Employee"/>
         <mapping class="com.talib.hibernate.relational.manytomany.Project"/>
+        <mapping resource="Person.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>
